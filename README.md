@@ -26,7 +26,9 @@ requested table or answer.
 • Preserve the row order of the source dataset unless stated otherwise.
 
 • Display every requested result in an executed notebook cell.
+
 ---
+
 ## III. Programming Problems
 ### A. POSITIONAL AND LABEL-BASED SLICING
 After loading cars, complete the following operations.
@@ -74,14 +76,21 @@ Model	mpg	cyl	hp	gear
 8	Merc 230	22.8	4	95	4
 9	Merc 280	19.2	6	123	4
 ```
-## Detailed Explanation of Each Function in A
-• `import pandas as pd:` Imports the Pandas library using the standard alias pd.  
+## Detailed Explanation of Each Function in A:
+• `import pandas as pd:` Imports the Pandas library using the standard alias pd.
+
 • `cars = pd.read_csv('cars.csv'):` Loads the dataset file cars.csv into a Pandas DataFrame named cars.  
-• `print("DataFrame Shape:", cars.shape):` Displays the dimensions of DataFrame cars as a tuple representing (rows, columns).  
-• `print("Column Names:", cars.columns.tolist()):` Extracts the column labels of cars and converts them into a standard Python list.  
+• `print("DataFrame Shape:", cars.shape):` Displays the dimensions of DataFrame cars as a tuple representing (rows, columns).
+
+• `print("Column Names:", cars.columns.tolist()):` Extracts the column labels of cars and converts them into a standard Python list.
+
 • `cars_6_to_10 = cars.iloc[5:10]:` Uses positional slicing (iloc) to extract rows 6 through 10 (indices 5 to 9) into DataFrame cars_6_to_10.  Where index 5 corresponds to row 6 because Pandas uses zero-based indexing.
+
 • `result_a_c = cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]:` Selects and reorders columns Model, mpg, cyl, hp, and gear using label-based column indexing.  
-• `display(result_a_c):` Displays the resulting subset DataFrame formatted in the Jupyter Notebook cell.  
+
+• `display(result_a_c):` Displays the resulting subset DataFrame formatted in the Jupyter Notebook cell.
+
+---
 
 ## B. MODEL LOOKUP
 Use Boolean indexing on the Model column to answer both requests.
@@ -92,6 +101,8 @@ b. For Pontiac Firebird, display only Model, mpg, hp, and wt.
 Store the two results in toyota and pontiac, respectively. Do not use a hard-coded row number to
 locate either model.
 
+## PROBLEM B CODE:
+```
 # Part (1): Boolean indexing for Toyota Corolla (Complete Row)
 toyota = cars[cars['Model'] == 'Toyota Corolla']
 display(toyota)
@@ -99,3 +110,22 @@ display(toyota)
 # Part (2): Boolean indexing for Pontiac Firebird (Selected Columns)
 pontiac = cars[cars['Model'] == 'Pontiac Firebird'][['Model', 'mpg', 'hp', 'wt']]
 display(pontiac)
+```
+
+## PROBLEM B OUTPUT:
+```
+Model	mpg	cyl	disp	hp	drat	wt	qsec	vs	am	gear	carb
+19	Toyota Corolla	33.9	4	71.1	65	4.22	1.835	19.9	1	1	4	1
+
+Model	mpg	hp	wt
+24	Pontiac Firebird	19.2	175	3.845
+```
+
+## Detailed Explanation of Each Function in B:
+• `toyota = cars[cars['Model'] == 'Toyota Corolla']`: Performs Boolean indexing on column **Model** to extract the complete row where the vehicle matches **Toyota Corolla**, saving the result in DataFrame **toyota**
+
+• `display(toyota)`: Displays the complete row retrieved for **Toyota Corolla**
+
+• `pontiac = cars[cars['Model'] == 'Pontiac Firebird'][['Model', 'mpg', 'hp', 'wt']]`: Filters the dataset for **Pontiac Firebird** using Boolean indexing and selects columns **Model**, **mpg**, **hp**, and **wt**, saving the result in DataFrame **pontiac**  --> Where double brackets `[['...']]` specify the exact subset of column labels to retain
+
+• `display(pontiac)`: Displays the filtered column subset for **Pontiac Firebird**
