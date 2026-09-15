@@ -35,30 +35,20 @@ use column labels.
 ---
 
 ## PART A CODE:
-After transferring the *car.csv* file into the same folder as our *.ipnyb* file we need to run this code for the file to read the data within the *.csv* file
+After downloading and transferring the *car.csv* file into the same folder as our *.ipnyb* file we need to run this code for the file to read the data within the *.csv* file
 ```
 import pandas as pd
 
 # Loads the dataset (cars) into the DataFrame 
 cars = pd.read_csv('cars.csv')
-```
 
-a. Display the shape and complete list of column names of cars.
-```
 # Part (a): Displays the shape and column names
 print("DataFrame Shape:", cars.shape)
 print("Column Names:", cars.columns.tolist())
-```
 
-b. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where
-     the first data row is row 1.
-```
 # Part (b): Positional slicing for rows 6 through 10 (0-based indices 5 through 9)
 cars_6_to_10 = cars.iloc[5:10]
-```
 
-c. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
-```
 # Part (3): Select specified columns using column labels
 result_a_c = cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]
 display(result_a_c)
