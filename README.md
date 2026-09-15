@@ -42,7 +42,7 @@ c. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in
 use column labels.
 ---
 
-## PART A CODE:
+## PROBLEM A CODE:
 After downloading and transferring the *car.csv* file into the same folder as our *.ipnyb* file we need to run this code for the file to read the data within the *.csv* file
 ```
 import pandas as pd
@@ -62,4 +62,40 @@ result_a_c = cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]
 display(result_a_c)
 ```
 
-## D
+## PROBLEM A OUTPUT:
+```
+DataFrame Shape: (32, 12)
+Column Names: ['Model', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb']
+Model	mpg	cyl	hp	gear
+
+5	Valiant	18.1	6	105	3
+6	Duster 360	14.3	8	245	3
+7	Merc 240D	24.4	4	62	4
+8	Merc 230	22.8	4	95	4
+9	Merc 280	19.2	6	123	4
+```
+## Detailed Explanation of Each Function in A
+• `import pandas as pd:` Imports the Pandas library using the standard alias pd.  
+• `cars = pd.read_csv('cars.csv'):` Loads the dataset file cars.csv into a Pandas DataFrame named cars.  
+• `print("DataFrame Shape:", cars.shape):` Displays the dimensions of DataFrame cars as a tuple representing (rows, columns).  
+• `print("Column Names:", cars.columns.tolist()):` Extracts the column labels of cars and converts them into a standard Python list.  
+• `cars_6_to_10 = cars.iloc[5:10]:` Uses positional slicing (iloc) to extract rows 6 through 10 (indices 5 to 9) into DataFrame cars_6_to_10.  Where index 5 corresponds to row 6 because Pandas uses zero-based indexing.
+• `result_a_c = cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]:` Selects and reorders columns Model, mpg, cyl, hp, and gear using label-based column indexing.  
+• `display(result_a_c):` Displays the resulting subset DataFrame formatted in the Jupyter Notebook cell.  
+
+## B. MODEL LOOKUP
+Use Boolean indexing on the Model column to answer both requests.
+a. Display the complete row for Toyota Corolla.
+
+b. For Pontiac Firebird, display only Model, mpg, hp, and wt.
+
+Store the two results in toyota and pontiac, respectively. Do not use a hard-coded row number to
+locate either model.
+
+# Part (1): Boolean indexing for Toyota Corolla (Complete Row)
+toyota = cars[cars['Model'] == 'Toyota Corolla']
+display(toyota)
+
+# Part (2): Boolean indexing for Pontiac Firebird (Selected Columns)
+pontiac = cars[cars['Model'] == 'Pontiac Firebird'][['Model', 'mpg', 'hp', 'wt']]
+display(pontiac)
