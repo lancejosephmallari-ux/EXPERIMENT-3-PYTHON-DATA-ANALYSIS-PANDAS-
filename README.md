@@ -29,13 +29,32 @@ requested table or answer.
 ---
 ## III. Programming Problems
 After loading cars, complete the following operations.
-
-  a. Display the shape and complete list of column names of cars.
-  
-  b. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where
-     the first data row is row 1.
-     
-  c. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
   
 **Requirement:** The row selection in part (b) must use iloc; the column selection in part (c) must
 use column labels.
+---
+## PART A CODE:
+```
+import pandas as pd
+
+# Loads the dataset (cars) into the DataFrame 
+cars = pd.read_csv('cars.csv')
+```
+a. Display the shape and complete list of column names of cars.
+```
+# Part (a): Displays the shape and column names
+print("DataFrame Shape:", cars.shape)
+print("Column Names:", cars.columns.tolist())
+```
+b. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where
+     the first data row is row 1.
+```
+# Part (b): Positional slicing for rows 6 through 10 (0-based indices 5 through 9)
+cars_6_to_10 = cars.iloc[5:10]
+```
+c. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
+```
+# Part (3): Select specified columns using column labels
+result_a_c = cars_6_to_10[['Model', 'mpg', 'cyl', 'hp', 'gear']]
+display(result_a_c)
+```
