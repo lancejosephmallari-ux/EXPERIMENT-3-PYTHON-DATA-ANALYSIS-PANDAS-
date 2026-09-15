@@ -26,3 +26,14 @@ requested table or answer.
 • Preserve the row order of the source dataset unless stated otherwise.
 
 • Display every requested result in an executed notebook cell.
+---
+## III. Programming Problems
+After loading cars, complete the following operations.
+
+  a. Display the shape and complete list of column names of cars.
+  b. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where
+     the first data row is row 1.
+  c. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
+  
+**Requirement:** The row selection in part (b) must use iloc; the column selection in part (c) must
+use column labels.
