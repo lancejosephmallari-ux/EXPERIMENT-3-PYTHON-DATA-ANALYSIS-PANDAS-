@@ -1,1 +1,5 @@
 # EXPERIMENT 3: PYTHON DATA ANALYSIS (PANDAS)-PA2_ECE2112_MALLARI,LJN
+**Submitted by Lance Joseph N. Mallari**
+
+**2ECE-A    Date: 09/15/2026**
+---
