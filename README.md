@@ -30,7 +30,7 @@ requested table or answer.
 ---
 
 ## III. Programming Problems
-### A. POSITIONAL AND LABEL-BASED SLICING
+# A. POSITIONAL AND LABEL-BASED SLICING
 After loading cars, complete the following operations.
 
 a. Display the shape and complete list of column names of cars.
@@ -92,7 +92,7 @@ Model	mpg	cyl	hp	gear
 
 ---
 
-## B. MODEL LOOKUP
+# B. MODEL LOOKUP
 Use Boolean indexing on the Model column to answer both requests.
 a. Display the complete row for Toyota Corolla.
 
@@ -129,3 +129,39 @@ Model	mpg	hp	wt
 • `pontiac = cars[cars['Model'] == 'Pontiac Firebird'][['Model', 'mpg', 'hp', 'wt']]`: Filters the dataset for **Pontiac Firebird** using Boolean indexing and selects columns **Model**, **mpg**, **hp**, and **wt**, saving the result in DataFrame **pontiac**  --> Where double brackets `[['...']]` specify the exact subset of column labels to retain
 
 • `display(pontiac)`: Displays the filtered column subset for **Pontiac Firebird**
+
+---
+
+# C. MULTI-MODEL SUBSETTING
+Create a DataFrame named selected cars containing only the records for three models: Datsun 710, Lotus Europa, and Ferrari Dino. For these records, retain only Model, mpg, cyl, hp, and gear. Select the rows by their model values rather than by row numbers. Display selected cars and its shape. *Required check:* **The final DataFrame must contain exactly three rows and five columns**
+
+## PROBLEM C CODE:
+```
+# Define target models by putting in your elements
+target_models = ['Datsun 710', 'Lotus Europa', 'Ferrari Dino']
+
+# Filter records by model values and specified columns
+selected_cars = cars[cars['Model'].isin(target_models)][['Model', 'mpg', 'cyl', 'hp', 'gear']]
+
+# Display result and the shape
+display(selected_cars)
+print("Shape of selected_cars:", selected_cars.shape)
+```
+
+## PROBLEM C OUTPUT:
+```
+Model	mpg	cyl	hp	gear
+2	Datsun 710	22.8	4	93	4
+27	Lotus Europa	30.4	4	113	5
+29	Ferrari Dino	19.7	6	175	5
+Shape of selected_cars: (3, 5)
+```
+## Detailed Explanation of Each Function in C:
+• `target_models = ['Datsun 710', 'Lotus Europa', 'Ferrari Dino']`: Defines a list **target_models** containing the three specified car model names.
+
+• `selected_cars = cars[cars['Model'].isin(target_models)][['Model', 'mpg', 'cyl', 'hp', 'gear']]`: Filters rows matching any value in **target_models** using `.isin()`, extracts columns **Model**, **mpg**, **cyl**, **hp**, and **gear**, and stores the result in DataFrame **selected_cars** --> Where `.isin()` evaluates Boolean matching across multiple target model values simultaneously.
+
+• `display(selected_cars)`: Renders the resulting DataFrame **selected_cars** in the Jupyter Notebook cell.
+
+• `print("Shape of selected_cars:", selected_cars.shape)`: Outputs the dimensions of **selected_cars** to verify it contains exactly 3 rows and 5 columns.
+
