@@ -165,3 +165,5 @@ Shape of selected_cars: (3, 5)
 
 • `print("Shape of selected_cars:", selected_cars.shape)`: Outputs the dimensions of **selected_cars** to verify it contains exactly 3 rows and 5 columns.
 
+---
+# **END OF NOTEBOOK**
